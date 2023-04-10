@@ -7,3 +7,7 @@ export interface ThemeProps {
 export type AppReduxState = {
   colorTheme: PaletteMode;
 };
+
+export type TabBoxComponentProps = {
+  tabs: string[];
+};

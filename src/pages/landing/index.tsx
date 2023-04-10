@@ -1,7 +1,12 @@
 import React from "react";
+import { NavBar } from "../../components";
 
 const Landing = () => {
-  return <div>Landing</div>;
+  return (
+    <div>
+      <NavBar />
+    </div>
+  );
 };
 
 export default Landing;
