@@ -17,7 +17,7 @@ const tabs = ["Home", "SDK", "Community"];
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
-    <StyledNavBar position="fixed">
+    <StyledNavBar position="sticky">
       <Container maxWidth="xl" sx={{ height: "100%", position: "relative" }}>
         <Toolbar disableGutters sx={{ height: "100%" }}>
           <LogoImage src={Logo} alt="Name Logo" width={40} height={40} />

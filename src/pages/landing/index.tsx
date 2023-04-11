@@ -1,11 +1,14 @@
-import React from "react";
-import { NavBar } from "../../components";
+import { Hero, NavBar, Slider, Video } from "../../components";
+import { LandingPageWrapper } from "../../components/styled";
 
 const Landing = () => {
   return (
-    <div>
+    <LandingPageWrapper>
       <NavBar />
-    </div>
+      <Hero />
+      <Video />
+      <Slider />
+    </LandingPageWrapper>
   );
 };
 

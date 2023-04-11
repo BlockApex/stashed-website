@@ -1,5 +1,10 @@
 import { AppBar, Box, styled, Typography, Button } from "@mui/material";
 
+export const LandingPageWrapper = styled("div")(() => ({
+  display: "flex",
+  flexDirection: "column",
+}));
+
 export const StyledNavBar = styled(AppBar)(() => ({
   width: "100%",
   height: "65px",
@@ -106,7 +111,145 @@ export const MobileTabBox = styled("div", {
   flexDirection: "column",
   alignItems: "flex-start",
   boxSizing: "border-box",
+  background: "white",
   [theme.breakpoints.up(600)]: {
     display: "none",
   },
+}));
+
+export const HeroWrapper = styled("div")(({ theme }) => ({
+  display: "flex",
+  padding: "20px 150px",
+  flexDirection: "column",
+  [theme.breakpoints.down("lg")]: {
+    padding: "20px 80px",
+  },
+  [theme.breakpoints.down(1082)]: {
+    padding: "20px 40px",
+  },
+  [theme.breakpoints.down(962)]: {
+    padding: "20px 10px",
+  },
+  [theme.breakpoints.down("md")]: {
+    padding: "10px",
+  },
+}));
+
+export const HeroHeader = styled("div")(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  [theme.breakpoints.down("md")]: {
+    justifyContent: "center",
+  },
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+  },
+}));
+
+export const HeroLeftBox = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  marginRight: "40px",
+  [theme.breakpoints.down("lg")]: {
+    paddingLeft: "30px",
+    marginRight: "0px",
+  },
+  [theme.breakpoints.down("md")]: {
+    paddingLeft: "0px",
+    marginRight: "10px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+}));
+
+export const HeroTitle = styled(Typography)(({ theme }) => ({
+  color: "#0D0D0D",
+  fontWeight: "860",
+  fontSize: "100px",
+  lineHeight: "115%",
+  textTransform: "uppercase",
+  letterSpacing: "-0.02em",
+  display: "flex",
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "70px",
+  },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "55px",
+  },
+  [theme.breakpoints.down(680)]: {
+    fontSize: "50px",
+  },
+  [theme.breakpoints.down(640)]: {
+    fontSize: "42px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    textAlign: "center",
+  },
+})) as typeof Typography;
+
+export const HeroSubTitle = styled("p")(({ theme }) => ({
+  fontWeight: 400,
+  fontSize: "20px",
+  fontFamily: "SF Pro",
+  margin: "5px 0px 0px 0px",
+  [theme.breakpoints.down("sm")]: {
+    textAlign: "center",
+  },
+}));
+
+export const ButtonsWrapper = styled("div")(() => ({
+  marginTop: "20px",
+}));
+
+export const HeroImage = styled("img")(({ theme }) => ({
+  width: "440px",
+  height: "600px",
+  marginTop: "30px",
+  [theme.breakpoints.down("lg")]: {
+    width: "400px",
+  },
+  [theme.breakpoints.down("md")]: {
+    width: "290px",
+    height: "400px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "250px ",
+    marginTop: "0px",
+    height: "300px",
+  },
+  [theme.breakpoints.down(640)]: {
+    width: "240px",
+  },
+}));
+
+export const HeroFooter = styled("div")(({ theme }) => ({
+  marginTop: "20px",
+}));
+
+export const HeroFooterTitle = styled("p")(() => ({
+  fontSize: "30px",
+  fontWeight: "bolder",
+  margin: "0px",
+}));
+
+export const CommunityList = styled("div")(() => ({
+  display: "flex",
+  marginTop: "10px",
+  justifyContent: "space-between",
+  overflowX: "auto",
+}));
+
+export const VideoWrapper = styled("div")(() => ({
+  width: "100%",
+  overflow: "hidden",
+  // position: "absolute",
+  top: "0",
+  left: "0",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 }));
