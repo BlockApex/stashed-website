@@ -135,7 +135,7 @@ export const HeroWrapper = styled("div")(({ theme }) => ({
   },
 }));
 
-export const HeroHeader = styled("div")(({ theme }) => ({
+export const BannerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -147,7 +147,7 @@ export const HeroHeader = styled("div")(({ theme }) => ({
   },
 }));
 
-export const HeroLeftBox = styled("div")(({ theme }) => ({
+export const BannerLeftBox = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   marginRight: "40px",
@@ -191,9 +191,13 @@ export const HeroTitle = styled(Typography)(({ theme }) => ({
   },
 })) as typeof Typography;
 
-export const HeroSubTitle = styled("p")(({ theme }) => ({
+export const BannerSubTitle = styled("p")<{
+  size: number;
+  color?: string;
+}>(({ theme, size, color }) => ({
+  color: color || "#0D0D0D",
   fontWeight: 400,
-  fontSize: "20px",
+  fontSize: `${size}px`,
   fontFamily: "SF Pro",
   margin: "5px 0px 0px 0px",
   [theme.breakpoints.down("sm")]: {
@@ -205,7 +209,7 @@ export const ButtonsWrapper = styled("div")(() => ({
   marginTop: "20px",
 }));
 
-export const HeroImage = styled("img")(({ theme }) => ({
+export const BannerImage = styled("img")(({ theme }) => ({
   width: "440px",
   height: "600px",
   marginTop: "30px",
@@ -252,4 +256,65 @@ export const VideoWrapper = styled("div")(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+}));
+
+export const BannerWrapper = styled("div")<{
+  background: string;
+}>(({ theme, background }) => ({
+  display: "flex",
+  padding: "20px 150px",
+  flexDirection: "column",
+  background,
+  marginTop: "0px",
+  [theme.breakpoints.down("lg")]: {
+    padding: "20px 120px",
+  },
+  [theme.breakpoints.down(1082)]: {
+    padding: "20px 90px",
+  },
+  [theme.breakpoints.down(962)]: {
+    padding: "20px 80px",
+  },
+  [theme.breakpoints.down("md")]: {
+    padding: "10px 60px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    padding: "10px",
+  },
+}));
+
+export const SliderTitle = styled("p")<{ color?: string }>(
+  ({ theme, color }) => ({
+    color: color || "#0D0D0D",
+
+    fontSize: "60px",
+    fontWeight: 860,
+    margin: "0px",
+    letterSpacing: "-0.02em",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      fontSize: "40px",
+    },
+  })
+);
+
+export const CommunitySectionWrapper = styled("div")(() => ({
+  border: "2px solid red",
+  height: "400px",
+  padding: "40px 80px",
+}));
+
+export const CommunitySectionBody = styled("div")(() => ({
+  width: "100%",
+  display: "flex",
+  border: "2px solid yellow",
+}));
+
+export const CommunitySectionLeftBox = styled("div")(() => ({
+  width: "45%",
+  border: "2px solid green",
+}));
+export const CommunitySectionRightBox = styled("div")(() => ({
+  width: "45%",
+  border: "2px solid blue",
 }));

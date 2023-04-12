@@ -1,4 +1,10 @@
-import { Hero, NavBar, Slider, Video } from "../../components";
+import {
+  CommunitySection,
+  Hero,
+  NavBar,
+  Slider,
+  Video,
+} from "../../components";
 import { LandingPageWrapper } from "../../components/styled";
 
 const Landing = () => {
@@ -8,6 +14,7 @@ const Landing = () => {
       <Hero />
       <Video />
       <Slider />
+      <CommunitySection />
     </LandingPageWrapper>
   );
 };

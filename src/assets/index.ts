@@ -10,7 +10,10 @@ import Mantle from "./mantle.svg";
 import Market from "./market.svg";
 import Stashed from "./stashed.mov";
 import HomePic from "./home.svg";
-import Start from "./start.svg";
+import Earn from "./earn.svg";
+import SendPage from "./send.svg";
+import UltimateMarketPlace from "./ultimateMarketplace.svg";
+import GamesAndApps from "./gamesAndApps.svg";
 
 export {
   Logo,
@@ -25,5 +28,8 @@ export {
   Capital,
   Stashed,
   HomePic,
-  Start,
+  Earn,
+  SendPage,
+  UltimateMarketPlace,
+  GamesAndApps,
 };

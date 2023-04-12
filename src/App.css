@@ -44,27 +44,49 @@
   margin-left: 25px;
 }
 
-/* Slideshow */
 
-.slideshow {
-  margin: 0 auto;
-  overflow: hidden;
-  max-width: 100%;
-  width:100%
+.slick-slider{
+  margin-top: -1px !important;
 }
-.slideshowSlider {
-  white-space: nowrap;
-}
-
-.slide {
-  display: inline-block;
-
-  height: 400px;
-  width: 100%;
-  /* border-radius: 40px; */
-}
+.slick-list{padding:0 20% 0 0 !important;}
 .slick-dots{
-  bottom:-200px !important
+  bottom:50% !important;
+  left:95%;
+  width:30px !important;
+  display: flex !important;
+  flex-direction: column;
+}
+
+.slick-next {
+  display: none !important;
+}
+li:nth-child(1) button::before{
+  font-size: 15px !important;
+}
+.slick-dots li button::before{
+  font-size: 15px !important;
+  color:gray
+}
+
+.slick-dots li.slick-active:nth-child(1) button:before {
+  color:#0D0D0D
+}
+.slick-dots li.slick-active:nth-child(2) button:before {
+
+
+  color:#00E599
+}
+.slick-dots li.slick-active:nth-child(3) button:before {
+ 
+  color:#0D0D0D
+}
+.slick-dots li.slick-active:nth-child(4) button:before {
+ 
+  color:#00E599
+}
+.slick-dots li.slick-active:nth-child(5) button:before {
+  
+  color:#0D0D0D
 }
 @keyframes App-logo-spin {
   from {
@@ -72,5 +94,13 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .slick-vertical .slick-slide{
+    height: 470px  !important;
+    margin-top: -0.1px;
   }
 }
