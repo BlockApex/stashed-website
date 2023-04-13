@@ -1,5 +1,6 @@
 import {
   CommunitySection,
+  Faqs,
   Hero,
   NavBar,
   Slider,
@@ -15,6 +16,7 @@ const Landing = () => {
       <Video />
       <Slider />
       <CommunitySection />
+      <Faqs />
     </LandingPageWrapper>
   );
 };

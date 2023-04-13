@@ -14,6 +14,13 @@ import Earn from "./earn.svg";
 import SendPage from "./send.svg";
 import UltimateMarketPlace from "./ultimateMarketplace.svg";
 import GamesAndApps from "./gamesAndApps.svg";
+import RightArrow from "./rightArrow.svg";
+import Twitter from "./twitter.svg";
+import Discord from "./discord.svg";
+import Telegram from "./telegram.svg";
+import Medium from "./medium.svg";
+import Cross from "./cross.svg";
+import Minus from "./minus.svg";
 
 export {
   Logo,
@@ -32,4 +39,11 @@ export {
   SendPage,
   UltimateMarketPlace,
   GamesAndApps,
+  RightArrow,
+  Twitter,
+  Discord,
+  Telegram,
+  Medium,
+  Cross,
+  Minus,
 };

@@ -42,7 +42,7 @@ function SlideShow() {
           </SliderTitle>
         ),
         subTitle: (
-          <BannerSubTitle size={isMobile ? 16 : 20}>
+          <BannerSubTitle size={isMobile ? 14 : 20}>
             {" "}
             Stashed makes crypto seamless with social logins & a display that’s
             easy for everyone to understand. You can also pay for transactions
@@ -59,7 +59,7 @@ function SlideShow() {
           </SliderTitle>
         ),
         subTitle: (
-          <BannerSubTitle color={white} size={isMobile ? 16 : 20}>
+          <BannerSubTitle color={white} size={isMobile ? 14 : 20}>
             Make passive gains with curated staking and lending programs on
             Stashed. Refer your friends + earn forever rewards & get cashback on
             every transaction with Stashed!{" "}
@@ -75,7 +75,7 @@ function SlideShow() {
           </SliderTitle>
         ),
         subTitle: (
-          <BannerSubTitle size={isMobile ? 16 : 20}>
+          <BannerSubTitle size={isMobile ? 14 : 20}>
             Sending and receiving crypto is now grandma-friendly, with memorable
             Stashed usernames. Buy, sell & swap crypto for the best prices, +
             cashout with a click!{" "}
@@ -91,7 +91,7 @@ function SlideShow() {
           </SliderTitle>
         ),
         subTitle: (
-          <BannerSubTitle size={isMobile ? 16 : 20} color={white}>
+          <BannerSubTitle size={isMobile ? 14 : 20} color={white}>
             The best place for trading NFTs - Stashed aggregates all major NFT
             marketplaces so you can easily browse, add to cart, & checkout with
             crypto + cash! {" "}
@@ -108,7 +108,7 @@ function SlideShow() {
           </SliderTitle>
         ),
         subTitle: (
-          <BannerSubTitle size={isMobile ? 16 : 20}>
+          <BannerSubTitle size={isMobile ? 14 : 20}>
             With the Stashed App Store, you can play new games, discover dApps,
             track coins, find projects + explore Web3 with the push of a button.
             Start your journey now! {" "}

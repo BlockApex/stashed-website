@@ -19,3 +19,8 @@ export type BannerProps = {
   imageSrc: string;
   children?: React.ReactElement;
 };
+
+export type TitleAndSubTitleProps = {
+  title: string;
+  subTitle: string;
+};
