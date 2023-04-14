@@ -24,3 +24,11 @@ export type TitleAndSubTitleProps = {
   title: string;
   subTitle: string;
 };
+
+export type PlatformList = {
+  heading: string;
+  platformList: {
+    name: string;
+    link: string;
+  }[];
+};

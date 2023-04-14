@@ -32,22 +32,24 @@ export const LogoImage = styled("img")(({ theme }) => ({
   },
 }));
 
-export const LogoTitle = styled(Typography)(({ theme }) => ({
-  color: "#0D0D0D",
-  fontWeight: "bold",
-  fontSize: "32px",
-  lineHeight: "32px",
-  textDecoration: "none",
-  marginLeft: "5px",
-  letterSpacing: "-0.02em",
-  [theme.breakpoints.down("sm")]: {
-    display: "flex",
+export const LogoTitle = styled(Typography)<{ color?: string }>(
+  ({ theme, color }) => ({
+    color: color || "#0D0D0D",
+    fontWeight: "bold",
+    fontSize: "32px",
+    lineHeight: "32px",
+    textDecoration: "none",
+    marginLeft: "5px",
+    letterSpacing: "-0.02em",
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
 
-    marginLeft: "3px",
-    fontSize: "17px",
-    fontWeight: "bolder",
-  },
-})) as typeof Typography;
+      marginLeft: "3px",
+      fontSize: "17px",
+      fontWeight: "bolder",
+    },
+  })
+) as typeof Typography;
 
 export const TabBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -367,11 +369,12 @@ export const Title = styled("p")(() => ({
   textTransform: "capitalize",
 }));
 
-export const SubTitle = styled("p")(() => ({
+export const SubTitle = styled("p")<{ color?: string }>(({ color }) => ({
   margin: "0px",
   fontSize: "15px",
   fontWeight: 400,
   lineHeight: "25px",
+  color: color || "#000",
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -412,7 +415,7 @@ export const FaqsWrapper = styled("div")(() => ({
 }));
 
 export const Heading = styled("p")(({ theme }) => ({
-  fontSize: "65px",
+  fontSize: "45px",
   fontWeight: 860,
   lineHeight: "86px",
 
@@ -453,7 +456,7 @@ export const AccordionStyled = styled(Accordion)(({ theme }) => ({
 
 export const AccordionSummaryStyled = styled(AccordionSummary)(({ theme }) => ({
   padding: "5px 35px ",
-  // border: "2px solid red",
+
   "& .MuiAccordionSummary-content": {
     margin: 0,
   },
@@ -467,5 +470,65 @@ export const AccordionDetailsStyled = styled(AccordionDetails)(() => ({
   borderRadius: "3px",
   padding: "25px",
   marginTop: "10px",
-  // opacity: 0.2,
+}));
+
+export const FooterWrapper = styled("div")(({ theme }) => ({
+  padding: "20px 40px",
+  display: "flex",
+
+  boxSizing: "border-box",
+  background: "#0D0D0D",
+  [theme.breakpoints.down(772)]: {
+    padding: "20px 15px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+  },
+}));
+
+export const FooterLeftBox = styled("div")(({ theme }) => ({
+  height: "100%",
+  width: "600px",
+  background: "#00E599",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  padding: "20px",
+  borderRadius: "12px",
+  boxSizing: "border-box",
+  [theme.breakpoints.down(772)]: {
+    padding: "10px",
+  },
+  [theme.breakpoints.down("lg")]: {
+    width: "50%",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
+}));
+
+export const FooterRightBox = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  marginLeft: "40px",
+  width: "50%",
+  boxSizing: "border-box",
+  [theme.breakpoints.down(772)]: {
+    marginLeft: "10px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+    marginLeft: "0px",
+    marginTop: "40px",
+  },
+}));
+
+export const FooterHeading = styled("p")(() => ({
+  padding: "0px",
+  margin: "0px",
+  fontSize: "55px",
+  fontWeight: 860,
+  letterSpacing: "-0.02em",
+  textTransform: "uppercase",
 }));

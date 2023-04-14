@@ -1,6 +1,7 @@
 import {
   CommunitySection,
   Faqs,
+  Footer,
   Hero,
   NavBar,
   Slider,
@@ -17,6 +18,7 @@ const Landing = () => {
       <Slider />
       <CommunitySection />
       <Faqs />
+      <Footer />
     </LandingPageWrapper>
   );
 };

@@ -1,10 +1,4 @@
-import {
-  Accordion,
-  AccordionSummary,
-  Typography,
-  AccordionDetails,
-  Box,
-} from "@mui/material";
+import { Typography } from "@mui/material";
 import React, { FC, SyntheticEvent, useMemo } from "react";
 import { Cross, Minus } from "../../assets";
 import {
@@ -12,8 +6,6 @@ import {
   AccordionStyled,
   FaqsWrapper,
   Heading,
-  HeroTitle,
-  LogoTitle,
   AccordionDetailsStyled,
 } from "../styled";
 
@@ -45,15 +37,18 @@ const Faqs = () => {
       },
       {
         question: "Does Stashed have access to my crypto?",
-        answer: "",
+        answer:
+          "No, Stashed never has access to your funds. Stashed uses non-custodial technology, which means that you have full control over your crypto.",
       },
       {
         question: "What if I forget my login details?",
-        answer: "",
+        answer:
+          "Don’t worry! Stashed sets up a unique recovery method when you sign up, which means that you can recover with just two of your recovery shares; your gmail, backup password, & phone number.",
       },
       {
         question: "What is $STSH?",
-        answer: "",
+        answer:
+          "$STSH is the token for Stashed, which can be used to pay for gas on any chain, gives you discounts on purchases + gives you cashback whenever you pay for transactions in $STSH! Coming soon!",
       },
     ],
     []
