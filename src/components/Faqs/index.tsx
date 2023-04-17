@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React, { FC, SyntheticEvent, useMemo } from "react";
-import { Cross, Minus } from "../../assets";
+import { Cross, Minus, StashedSymbol } from "../../assets";
 import {
   AccordionSummaryStyled,
   AccordionStyled,
@@ -80,7 +80,13 @@ const Faqs = () => {
               </Typography>
             </AccordionSummaryStyled>
             <AccordionDetailsStyled>
-              <Typography sx={{ opacity: 1, color: "#000" }}>
+              <img src={StashedSymbol} alt="stashedSymbol" />
+              <Typography
+                sx={{ opacity: 1, color: "#000" }}
+                ml={2}
+                marginTop={{ xs: 2, sm: 0 }}
+                marginLeft={{ xs: 0, sm: 2 }}
+              >
                 {content.answer}
               </Typography>
             </AccordionDetailsStyled>

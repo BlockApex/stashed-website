@@ -43,7 +43,7 @@ const CommunitySection = () => {
         <Divider
           orientation="vertical"
           flexItem
-          sx={{ margin: "0px 35px", border: "1px solid #B2B2B2" }}
+          sx={{ margin: { sm: "0px 35px" }, border: "1px solid #B2B2B2" }}
         />
         <CommunitySectionRightBox>
           <TitleAndSubTitle

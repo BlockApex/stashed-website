@@ -9,6 +9,7 @@ import TitleAndSubTitle from "./TitleAndSubTitle";
 import Faqs from "./Faqs";
 import Footer from "./Footer";
 import PlatformList from "./PlatformList";
+import AppleAndGoogleStoreButton from "./AppleAndGoogleStoreButton";
 
 export {
   NavBar,
@@ -22,4 +23,5 @@ export {
   Faqs,
   Footer,
   PlatformList,
+  AppleAndGoogleStoreButton,
 };

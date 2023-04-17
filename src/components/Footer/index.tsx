@@ -1,9 +1,10 @@
+import { useMemo } from "react";
 import { Box } from "@mui/material";
-import React, { useMemo } from "react";
-import { AppStore, GoogleStore, Logo } from "../../assets";
+
+import { Logo } from "../../assets";
+import AppleAndGoogleStoreButton from "../AppleAndGoogleStoreButton";
 import PlatformList from "../PlatformList";
 import {
-  ButtonsWrapper,
   FooterHeading,
   FooterLeftBox,
   FooterRightBox,
@@ -50,22 +51,7 @@ const Footer = () => {
         <FooterHeading style={{ padding: "0px" }}>
           JOIN <br /> STASHED
         </FooterHeading>
-        <ButtonsWrapper>
-          <img
-            src={AppStore}
-            alt="appStoreButton"
-            width={125}
-            height={50}
-            className="cursor"
-          />
-          <img
-            src={GoogleStore}
-            alt="googleStoreButton"
-            width={125}
-            height={50}
-            className="cursor googleStoreButton"
-          />{" "}
-        </ButtonsWrapper>
+        <AppleAndGoogleStoreButton />
       </FooterLeftBox>
       <FooterRightBox>
         <Box display="flex" alignItems="center" mb={0}>
@@ -83,6 +69,8 @@ const Footer = () => {
             md: "row",
             lg: "row",
           }}
+          marginBottom={{ md: 5, xs: 2 }}
+          marginTop={{ md: 5, xs: 2 }}
         >
           <PlatformList
             heading="COMMUNITY"

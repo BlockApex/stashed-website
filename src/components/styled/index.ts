@@ -9,6 +9,7 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@mui/material";
+import { Background } from "../../assets";
 
 export const LandingPageWrapper = styled("div")(() => ({
   display: "flex",
@@ -86,7 +87,7 @@ export const SyledButton = styled(Button)(() => ({
   marginLeft: "20px",
   boxShadow: "none",
   fontSize: "14px",
-  fontWeight: 400,
+  fontWeight: 600,
   cursor: "pointer",
   ":hover": {
     background: "#00E599",
@@ -159,24 +160,27 @@ export const BannerHeader = styled("div")(({ theme }) => ({
   },
 }));
 
-export const BannerLeftBox = styled("div")(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  marginRight: "40px",
-  [theme.breakpoints.down("lg")]: {
-    paddingLeft: "30px",
-    marginRight: "0px",
-  },
-  [theme.breakpoints.down("md")]: {
-    paddingLeft: "0px",
-    marginRight: "10px",
-  },
-  [theme.breakpoints.down("sm")]: {
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-}));
+export const BannerLeftBox = styled("div")<{ isSlider: boolean }>(
+  ({ theme, isSlider }) => ({
+    display: "flex",
+    flexDirection: "column",
+    marginRight: "40px",
+    maxWidth: isSlider ? "500px" : "100%",
+    [theme.breakpoints.down("lg")]: {
+      paddingLeft: "30px",
+      marginRight: "0px",
+    },
+    [theme.breakpoints.down("md")]: {
+      paddingLeft: "0px",
+      marginRight: "10px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      justifyContent: isSlider ? "flex-start" : "center",
+      alignItems: isSlider ? "flex-start" : "center",
+    },
+  })
+);
 
 export const HeroTitle = styled(Typography)<{ textAlign?: string }>(
   ({ theme, textAlign }) => ({
@@ -184,7 +188,7 @@ export const HeroTitle = styled(Typography)<{ textAlign?: string }>(
     fontWeight: "860",
     fontSize: "100px",
     lineHeight: "115%",
-    textTransform: "uppercase",
+
     letterSpacing: "-0.02em",
     display: "flex",
     [theme.breakpoints.down("lg")]: {
@@ -213,9 +217,11 @@ export const BannerSubTitle = styled("p")<{
   fontWeight: 400,
   fontSize: `${size}px`,
   fontFamily: "SF Pro",
-  margin: "5px 0px 0px 0px",
+  margin: "10px 0px 0px 0px",
   [theme.breakpoints.down("sm")]: {
-    textAlign: "center",
+    textAlign: "start",
+    maxWidth: "300px",
+    margin: "10px 0px",
   },
 }));
 
@@ -280,6 +286,7 @@ export const BannerWrapper = styled("div")<{
   flexDirection: "column",
   background,
   marginTop: "0px",
+
   [theme.breakpoints.down("lg")]: {
     padding: "20px 120px",
   },
@@ -294,6 +301,7 @@ export const BannerWrapper = styled("div")<{
   },
   [theme.breakpoints.down("sm")]: {
     padding: "10px",
+    height: "500px",
   },
 }));
 
@@ -315,12 +323,12 @@ export const SliderTitle = styled("p")<{ color?: string }>(
 export const CommunitySectionWrapper = styled("div")(({ theme }) => ({
   // border: "2px solid red",
 
-  padding: "40px 80px",
+  padding: "60px 80px",
   [theme.breakpoints.down("lg")]: {
-    padding: "30px 50px",
+    padding: "60px 50px",
   },
   [theme.breakpoints.down("md")]: {
-    padding: "30px 30px",
+    padding: "60px 30px",
   },
 }));
 
@@ -409,7 +417,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const FaqsWrapper = styled("div")(() => ({
   // border: "2px solid red",
-  padding: "20px 0px",
+  padding: "40px 0px 80px 0px",
   width: "100%",
   overflow: "hidden",
 }));
@@ -436,9 +444,10 @@ export const Heading = styled("p")(({ theme }) => ({
 
 export const AccordionStyled = styled(Accordion)(({ theme }) => ({
   overflow: "hidden",
-  "&:not(:last-child)": {
-    borderBottom: 0,
-    marginBottom: 1,
+  "&:last-child": {
+    // borderBottom: 0,
+    marginBottom: 20,
+    borderBottom: "1px solid #B2B2B2",
   },
   "&:before": {
     display: "none",
@@ -446,8 +455,11 @@ export const AccordionStyled = styled(Accordion)(({ theme }) => ({
 
   borderTop: "1px solid #B2B2B2",
   "&.MuiAccordion-root": {
-    padding: "10px 40px",
+    padding: "10px 80px",
     marginBottom: "0px",
+    [theme.breakpoints.down("md")]: {
+      padding: "10px 60px",
+    },
     [theme.breakpoints.down("sm")]: {
       padding: "5px 10px",
     },
@@ -455,7 +467,7 @@ export const AccordionStyled = styled(Accordion)(({ theme }) => ({
 }));
 
 export const AccordionSummaryStyled = styled(AccordionSummary)(({ theme }) => ({
-  padding: "5px 35px ",
+  padding: "5px 25px ",
 
   "& .MuiAccordionSummary-content": {
     margin: 0,
@@ -465,17 +477,27 @@ export const AccordionSummaryStyled = styled(AccordionSummary)(({ theme }) => ({
   },
 }));
 
-export const AccordionDetailsStyled = styled(AccordionDetails)(() => ({
+export const AccordionDetailsStyled = styled(AccordionDetails)(({ theme }) => ({
   background: "#ccfaeb",
   borderRadius: "3px",
-  padding: "25px",
+  padding: "25px 40px",
   marginTop: "10px",
+  display: "flex",
+  marginBottom: "25px",
+
+  alignItems: "center",
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+
+    padding: "25px 35px",
+  },
 }));
 
 export const FooterWrapper = styled("div")(({ theme }) => ({
   padding: "20px 40px",
   display: "flex",
-
+  // height: "350px",
   boxSizing: "border-box",
   background: "#0D0D0D",
   [theme.breakpoints.down(772)]: {
@@ -487,7 +509,7 @@ export const FooterWrapper = styled("div")(({ theme }) => ({
 }));
 
 export const FooterLeftBox = styled("div")(({ theme }) => ({
-  height: "100%",
+  // height: "100%",
   width: "600px",
   background: "#00E599",
   display: "flex",
@@ -496,6 +518,9 @@ export const FooterLeftBox = styled("div")(({ theme }) => ({
   padding: "20px",
   borderRadius: "12px",
   boxSizing: "border-box",
+  // backgroundImage: `url(${Background})`,
+  height: "100%",
+  backgroundSize: "cover",
   [theme.breakpoints.down(772)]: {
     padding: "10px",
   },
@@ -532,3 +557,12 @@ export const FooterHeading = styled("p")(() => ({
   letterSpacing: "-0.02em",
   textTransform: "uppercase",
 }));
+
+export const TextUnderLine = styled("span")<{ color?: string }>(
+  ({ theme, color }) => ({
+    borderBottom: `4px solid ${color || "#00E599"}`,
+    [theme.breakpoints.down("sm")]: {
+      border: "none",
+    },
+  })
+);

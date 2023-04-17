@@ -18,6 +18,7 @@ export type BannerProps = {
   subTitle: ReactElement;
   imageSrc: string;
   children?: React.ReactElement;
+  isSlider: boolean;
 };
 
 export type TitleAndSubTitleProps = {

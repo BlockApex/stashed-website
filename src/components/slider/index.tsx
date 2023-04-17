@@ -10,7 +10,12 @@ import {
   UltimateMarketPlace,
 } from "../../assets";
 import Banner from "../Banner";
-import { BannerWrapper, SliderTitle, BannerSubTitle } from "../styled";
+import {
+  BannerWrapper,
+  SliderTitle,
+  BannerSubTitle,
+  TextUnderLine,
+} from "../styled";
 
 const white = "#fff";
 const black = "#0D0D0D";
@@ -37,7 +42,7 @@ function SlideShow() {
       {
         title: (
           <SliderTitle>
-            {"YOUR HOME"}
+            {"YOUR"} <TextUnderLine>HOME</TextUnderLine>
             <br /> {"FOR CRYPTO"}
           </SliderTitle>
         ),
@@ -55,7 +60,7 @@ function SlideShow() {
       {
         title: (
           <SliderTitle color={white}>
-            EARN WHILE <br /> YOU’RE IDLE
+            <TextUnderLine> EARN </TextUnderLine> WHILE <br /> YOU’RE IDLE
           </SliderTitle>
         ),
         subTitle: (
@@ -71,7 +76,8 @@ function SlideShow() {
       {
         title: (
           <SliderTitle>
-            SEND & SWAP <br /> IN ONE STOP
+            <TextUnderLine color="#fff"> SEND & SWAP</TextUnderLine> <br /> IN
+            ONE STOP
           </SliderTitle>
         ),
         subTitle: (
@@ -86,8 +92,8 @@ function SlideShow() {
       },
       {
         title: (
-          <SliderTitle color={white}>
-            THE ULTIMATE <br /> MARKETPLACE
+          <SliderTitle color={white} style={{ marginBottom: "10px" }}>
+            THE ULTIMATE <br /> <TextUnderLine>MARKETPLACE</TextUnderLine>
           </SliderTitle>
         ),
         subTitle: (
@@ -103,7 +109,7 @@ function SlideShow() {
       {
         title: (
           <SliderTitle>
-            GAMES & APPS
+            <TextUnderLine> GAMES & APPS</TextUnderLine>
             <br /> SUPERSTORE
           </SliderTitle>
         ),
@@ -131,6 +137,7 @@ function SlideShow() {
                 Title={slideContent.title}
                 subTitle={slideContent.subTitle}
                 imageSrc={slideContent.image}
+                isSlider={true}
               />
             </BannerWrapper>
           </div>

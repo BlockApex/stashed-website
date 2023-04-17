@@ -21,6 +21,8 @@ import Telegram from "./telegram.svg";
 import Medium from "./medium.svg";
 import Cross from "./cross.svg";
 import Minus from "./minus.svg";
+import StashedSymbol from "./stashedSymbol.svg";
+import Background from "./background.svg";
 
 export {
   Logo,
@@ -46,4 +48,6 @@ export {
   Medium,
   Cross,
   Minus,
+  StashedSymbol,
+  Background,
 };

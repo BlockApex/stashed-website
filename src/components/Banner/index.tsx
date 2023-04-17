@@ -9,10 +9,11 @@ const Banner: FC<PROPS> = ({
   subTitle,
 
   children,
+  isSlider,
 }) => {
   return (
     <BannerHeader style={{ background: "none" }}>
-      <BannerLeftBox>
+      <BannerLeftBox isSlider={isSlider}>
         <>{Title}</>
 
         <>{subTitle}</>

@@ -28,6 +28,7 @@ const Navbar = () => {
             sx={{
               display: { xs: "none", sm: "flex" },
               justifyContent: "flex-end",
+              alignItems: "center",
               marginLeft: "auto",
             }}
           >
