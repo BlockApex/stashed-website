@@ -33,3 +33,7 @@ export type PlatformList = {
     link: string;
   }[];
 };
+
+export type AppleAndGoogleStoreButton = {
+  flexDirection?: string;
+};

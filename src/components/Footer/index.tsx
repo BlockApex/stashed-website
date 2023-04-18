@@ -13,6 +13,7 @@ import {
   LogoTitle,
   SubTitle,
 } from "../styled";
+import { isMobile } from "react-device-detect";
 
 const Footer = () => {
   const communityPlatformList = useMemo(
@@ -51,7 +52,7 @@ const Footer = () => {
         <FooterHeading style={{ padding: "0px" }}>
           JOIN <br /> STASHED
         </FooterHeading>
-        <AppleAndGoogleStoreButton />
+        <AppleAndGoogleStoreButton flexDirection="column" />
       </FooterLeftBox>
       <FooterRightBox>
         <Box display="flex" alignItems="center" mb={0}>
@@ -81,7 +82,7 @@ const Footer = () => {
             platformList={resourcesPlatformList}
           />
         </Box>
-        <SubTitle color="#fff">
+        <SubTitle color="#fff" style={{ fontSize: isMobile ? "9px" : "16px" }}>
           Copyright © 2023, STASHED &nbsp; • &nbsp; Privacy Policy &nbsp; •
           &nbsp; Terms & Conditions
         </SubTitle>

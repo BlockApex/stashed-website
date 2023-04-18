@@ -2,16 +2,23 @@ import { Box, Container, Toolbar } from "@mui/material";
 import { useState } from "react";
 import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
 
-import { Logo } from "../../assets";
+import { Logo, RightArrow } from "../../assets";
 import {
+  HeroFooterTitle,
   LogoImage,
   LogoTitle,
   MobileTabBox,
+  NavBarSearchBoxWrapper,
+  StyledInputBase,
   StyledNavBar,
   SyledButton,
   TogglerBox,
 } from "../styled";
 import TabBoxComponent from "../TabBoxComponent";
+
+const EndAdornment = () => {
+  return <img src={RightArrow} alt="rightArrow" className="cursor" />;
+};
 
 const tabs = ["Home", "SDK", "Community"];
 const Navbar = () => {
@@ -19,7 +26,12 @@ const Navbar = () => {
   return (
     <StyledNavBar position="sticky">
       <Container maxWidth="xl" sx={{ height: "100%", position: "relative" }}>
-        <Toolbar disableGutters sx={{ height: "100%" }}>
+        <Toolbar
+          disableGutters
+          sx={{
+            height: "100%",
+          }}
+        >
           <LogoImage src={Logo} alt="Name Logo" width={40} height={40} />
           <LogoTitle variant="h1" noWrap>
             Stashed
@@ -49,6 +61,13 @@ const Navbar = () => {
             Register
           </SyledButton>
           <TabBoxComponent tabs={tabs} />
+          <NavBarSearchBoxWrapper>
+            <HeroFooterTitle> Stay Updated</HeroFooterTitle>
+            <StyledInputBase
+              placeholder="Enter your email"
+              endAdornment={<EndAdornment />}
+            />
+          </NavBarSearchBoxWrapper>
         </MobileTabBox>
       </Container>
     </StyledNavBar>

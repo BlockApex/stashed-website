@@ -1,11 +1,13 @@
 import { Tooltip } from "@mui/material";
+import { FC } from "react";
 
 import { AppStore, GoogleStore } from "../../assets";
+import { AppleAndGoogleStoreButton as PROPS } from "../../interfaces";
 import { ButtonsWrapper } from "../styled";
 
-const AppleAndGoogleStoreButton = () => {
+const AppleAndGoogleStoreButton: FC<PROPS> = ({ flexDirection }) => {
   return (
-    <ButtonsWrapper>
+    <ButtonsWrapper flexDirection={flexDirection}>
       <Tooltip title="Coming Soon...">
         <img
           src={AppStore}
@@ -21,7 +23,9 @@ const AppleAndGoogleStoreButton = () => {
           alt="googleStoreButton"
           width={125}
           height={50}
-          className="cursor googleStoreButton"
+          className={`cursor googleStoreButton ${
+            flexDirection === "column" && "zeroMargin"
+          }`}
         />
       </Tooltip>
     </ButtonsWrapper>

@@ -75,7 +75,12 @@ const Faqs = () => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography color="#0D0D0D" fontSize={17} fontWeight={400}>
+              <Typography
+                color="#0D0D0D"
+                fontSize={17}
+                fontWeight={400}
+                fontFamily="SFPROREGULAR"
+              >
                 {content.question}
               </Typography>
             </AccordionSummaryStyled>
@@ -86,6 +91,7 @@ const Faqs = () => {
                 ml={2}
                 marginTop={{ xs: 2, sm: 0 }}
                 marginLeft={{ xs: 0, sm: 2 }}
+                fontFamily="SFPROREGULAR"
               >
                 {content.answer}
               </Typography>

@@ -1,6 +1,15 @@
 import { Box, Divider } from "@mui/material";
 import { useMemo } from "react";
-import { Discord, Medium, RightArrow, Telegram, Twitter } from "../../assets";
+import { isMobile } from "react-device-detect";
+import {
+  Discord,
+  Medium,
+  NFT,
+  NftDesktop,
+  RightArrow,
+  Telegram,
+  Twitter,
+} from "../../assets";
 
 import { TitleAndSubTitle } from "../index";
 
@@ -25,6 +34,12 @@ const CommunitySection = () => {
 
   return (
     <CommunitySectionWrapper>
+      <img
+        src={isMobile ? NFT : NftDesktop}
+        alt="nft"
+        className={`${isMobile ? "nftMobile" : "nftDesktop"}`}
+      />
+
       <HeroTitle textAlign={"start"}>
         Join our
         <br /> Community

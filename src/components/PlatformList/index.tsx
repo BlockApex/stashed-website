@@ -13,6 +13,7 @@ const PlatformList: FC<PROPS> = ({ platformList, heading }) => {
         color="white"
         sx={{ fontSize: { md: "30px" }, marginLeft: "0px" }}
         mb={2}
+        fontFamily="SFPROREGULAR"
       >
         {heading}
       </LogoTitle>

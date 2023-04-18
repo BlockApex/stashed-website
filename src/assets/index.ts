@@ -1,6 +1,5 @@
 import Logo from "./Logo.svg";
-import HeroDesktop from "./heroDesktop.svg";
-import HeroMObile from "./heroMobile.svg";
+import HeroMobile from "./heroMobile.svg";
 import AppStore from "./AppStore.svg";
 import GoogleStore from "./GoogleStore.svg";
 import Dao from "./dao.svg";
@@ -23,11 +22,12 @@ import Cross from "./cross.svg";
 import Minus from "./minus.svg";
 import StashedSymbol from "./stashedSymbol.svg";
 import Background from "./background.svg";
+import NFT from "./nft.svg";
+import NftDesktop from "./nftDesktop.svg";
 
 export {
   Logo,
-  HeroDesktop,
-  HeroMObile,
+  HeroMobile,
   AppStore,
   GoogleStore,
   Dao,
@@ -50,4 +50,6 @@ export {
   Minus,
   StashedSymbol,
   Background,
+  NFT,
+  NftDesktop,
 };

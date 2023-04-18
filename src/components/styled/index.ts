@@ -33,28 +33,30 @@ export const LogoImage = styled("img")(({ theme }) => ({
   },
 }));
 
-export const LogoTitle = styled(Typography)<{ color?: string }>(
-  ({ theme, color }) => ({
-    color: color || "#0D0D0D",
-    fontWeight: "bold",
-    fontSize: "32px",
-    lineHeight: "32px",
-    textDecoration: "none",
-    marginLeft: "5px",
-    letterSpacing: "-0.02em",
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
+export const LogoTitle = styled(Typography)<{
+  color?: string;
+  fontFamily?: string;
+}>(({ theme, color, fontFamily }) => ({
+  color: color || "#0D0D0D",
+  fontWeight: "800",
+  fontSize: "32px",
+  lineHeight: "32px",
+  textDecoration: "none",
+  marginLeft: "5px",
+  letterSpacing: "-0.02em",
+  fontFamily: fontFamily || "PPNeueMachinaRegular",
+  paddingTop: "5px",
+  [theme.breakpoints.down("sm")]: {
+    display: "flex",
 
-      marginLeft: "3px",
-      fontSize: "17px",
-      fontWeight: "bolder",
-    },
-  })
-) as typeof Typography;
+    marginLeft: "3px",
+    fontSize: "17px",
+    fontWeight: "bolder",
+  },
+})) as typeof Typography;
 
 export const TabBox = styled(Box)(({ theme }) => ({
   display: "flex",
-  height: "100%",
   alignItems: "center",
   borderRight: " 0.5px solid #B2B2B2",
   [theme.breakpoints.down("sm")]: {
@@ -73,6 +75,7 @@ export const SingleTabText = styled("p")(({ theme }) => ({
   letterSpacing: "-0.02em",
   margin: "1rem 2rem",
   cursor: "pointer",
+  fontFamily: "SFPROREGULAR",
   [theme.breakpoints.down("md")]: {
     margin: "1rem 1rem",
   },
@@ -87,7 +90,7 @@ export const SyledButton = styled(Button)(() => ({
   marginLeft: "20px",
   boxShadow: "none",
   fontSize: "14px",
-  fontWeight: 600,
+  fontWeight: 400,
   cursor: "pointer",
   ":hover": {
     background: "#00E599",
@@ -112,7 +115,7 @@ export const TogglerBox = styled(Box)(({ theme }) => ({
 export const MobileTabBox = styled("div", {
   shouldForwardProp: (prop) => prop !== "toggle",
 })<{ toggle: boolean }>(({ theme, toggle }) => ({
-  height: toggle ? "230px" : "0px",
+  height: toggle ? "350px" : "0px",
 
   width: "100%",
   left: "0px",
@@ -125,9 +128,15 @@ export const MobileTabBox = styled("div", {
   alignItems: "flex-start",
   boxSizing: "border-box",
   background: "white",
+  overflowY: "hidden",
   [theme.breakpoints.up(600)]: {
     display: "none",
   },
+}));
+
+export const NavBarSearchBoxWrapper = styled("div")(() => ({
+  width: "90%",
+  margin: "10px auto",
 }));
 
 export const HeroWrapper = styled("div")(({ theme }) => ({
@@ -178,6 +187,8 @@ export const BannerLeftBox = styled("div")<{ isSlider: boolean }>(
       width: "100%",
       justifyContent: isSlider ? "flex-start" : "center",
       alignItems: isSlider ? "flex-start" : "center",
+      paddingLeft: isSlider ? "10px" : "0px",
+      marginBottom: "15px",
     },
   })
 );
@@ -187,6 +198,7 @@ export const HeroTitle = styled(Typography)<{ textAlign?: string }>(
     color: "#0D0D0D",
     fontWeight: "860",
     fontSize: "100px",
+    fontFamily: "SFPROREGULAR",
     lineHeight: "115%",
 
     letterSpacing: "-0.02em",
@@ -200,7 +212,7 @@ export const HeroTitle = styled(Typography)<{ textAlign?: string }>(
     [theme.breakpoints.down(680)]: {
       fontSize: "50px",
     },
-    [theme.breakpoints.down(640)]: {
+    [theme.breakpoints.down(338)]: {
       fontSize: "42px",
     },
     [theme.breakpoints.down("sm")]: {
@@ -216,7 +228,7 @@ export const BannerSubTitle = styled("p")<{
   color: color || "#0D0D0D",
   fontWeight: 400,
   fontSize: `${size}px`,
-  fontFamily: "SF Pro",
+  fontFamily: "SFPROREGULAR",
   margin: "10px 0px 0px 0px",
   [theme.breakpoints.down("sm")]: {
     textAlign: "start",
@@ -225,9 +237,15 @@ export const BannerSubTitle = styled("p")<{
   },
 }));
 
-export const ButtonsWrapper = styled("div")(() => ({
-  marginTop: "20px",
-}));
+export const ButtonsWrapper = styled("div")<{ flexDirection?: string }>(
+  ({ theme, flexDirection }) => ({
+    marginTop: "20px",
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      flexDirection: flexDirection || "row",
+    },
+  })
+);
 
 export const BannerImage = styled("img")(({ theme }) => ({
   width: "440px",
@@ -251,13 +269,15 @@ export const BannerImage = styled("img")(({ theme }) => ({
 }));
 
 export const HeroFooter = styled("div")(({ theme }) => ({
-  marginTop: "20px",
+  margin: "45px 0px",
 }));
 
 export const HeroFooterTitle = styled("p")(() => ({
   fontSize: "30px",
   fontWeight: "bolder",
   margin: "0px",
+  color: "#000",
+  fontFamily: "SFPROREGULAR",
 }));
 
 export const CommunityList = styled("div")(() => ({
@@ -282,11 +302,11 @@ export const BannerWrapper = styled("div")<{
   background: string;
 }>(({ theme, background }) => ({
   display: "flex",
-  padding: "20px 150px",
+  padding: "16px 150px",
   flexDirection: "column",
   background,
   marginTop: "0px",
-
+  // height: "100%",
   [theme.breakpoints.down("lg")]: {
     padding: "20px 120px",
   },
@@ -301,7 +321,7 @@ export const BannerWrapper = styled("div")<{
   },
   [theme.breakpoints.down("sm")]: {
     padding: "10px",
-    height: "500px",
+    height: "510px",
   },
 }));
 
@@ -311,6 +331,7 @@ export const SliderTitle = styled("p")<{ color?: string }>(
 
     fontSize: "60px",
     fontWeight: 860,
+    fontFamily: "SFPROREGULAR",
     margin: "0px",
     letterSpacing: "-0.02em",
     [theme.breakpoints.down("sm")]: {
@@ -324,6 +345,7 @@ export const CommunitySectionWrapper = styled("div")(({ theme }) => ({
   // border: "2px solid red",
 
   padding: "60px 80px",
+  position: "relative",
   [theme.breakpoints.down("lg")]: {
     padding: "60px 50px",
   },
@@ -375,6 +397,7 @@ export const Title = styled("p")(() => ({
   fontSize: "22px",
   fontWeight: 860,
   textTransform: "capitalize",
+  fontFamily: "SFPROREGULAR",
 }));
 
 export const SubTitle = styled("p")<{ color?: string }>(({ color }) => ({
@@ -383,6 +406,7 @@ export const SubTitle = styled("p")<{ color?: string }>(({ color }) => ({
   fontWeight: 400,
   lineHeight: "25px",
   color: color || "#000",
+  fontFamily: "SFPROREGULAR",
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -425,11 +449,12 @@ export const FaqsWrapper = styled("div")(() => ({
 export const Heading = styled("p")(({ theme }) => ({
   fontSize: "45px",
   fontWeight: 860,
+  fontFamily: "SFPROREGULAR",
   lineHeight: "86px",
 
   padding: "0px 80px",
   margin: "10px",
-
+  color: "#000",
   [theme.breakpoints.down("lg")]: {
     padding: "0px 50px",
   },
@@ -509,7 +534,6 @@ export const FooterWrapper = styled("div")(({ theme }) => ({
 }));
 
 export const FooterLeftBox = styled("div")(({ theme }) => ({
-  // height: "100%",
   width: "600px",
   background: "#00E599",
   display: "flex",
@@ -518,7 +542,7 @@ export const FooterLeftBox = styled("div")(({ theme }) => ({
   padding: "20px",
   borderRadius: "12px",
   boxSizing: "border-box",
-  // backgroundImage: `url(${Background})`,
+  backgroundImage: `url(${Background})`,
   height: "100%",
   backgroundSize: "cover",
   [theme.breakpoints.down(772)]: {
@@ -551,8 +575,9 @@ export const FooterRightBox = styled("div")(({ theme }) => ({
 
 export const FooterHeading = styled("p")(() => ({
   padding: "0px",
-  margin: "0px",
+  margin: "0px 0px 60px  0px",
   fontSize: "55px",
+  fontFamily: "SFPROBOLD",
   fontWeight: 860,
   letterSpacing: "-0.02em",
   textTransform: "uppercase",

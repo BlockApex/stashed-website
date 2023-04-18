@@ -1,14 +1,5 @@
-import { isMobile } from "react-device-detect";
-
-import {
-  Capital,
-  Dao,
-  Gaming,
-  HeroDesktop,
-  HeroMObile,
-  Mantle,
-  Market,
-} from "../../assets";
+import { useMemo } from "react";
+import { Capital, Dao, Gaming, HeroMobile, Mantle, Market } from "../../assets";
 import AppleAndGoogleStoreButton from "../AppleAndGoogleStoreButton";
 import Banner from "../Banner";
 import {
@@ -20,9 +11,18 @@ import {
   BannerSubTitle,
 } from "../styled";
 
-const communityList = [Dao, Gaming, Mantle, Market, Capital];
-
 const Hero = () => {
+  const communityList = useMemo(
+    () => [
+      { src: Dao, link: "https://daomaker.com/" },
+      { src: Gaming, link: "https://polkastarter.gg/" },
+      { src: Mantle, link: "https://www.mantle.xyz/" },
+      { src: Market, link: "https://marketacross.com/" },
+      { src: Capital, link: "https://sl2.capital/" },
+    ],
+    []
+  );
+
   return (
     <HeroWrapper>
       <Banner
@@ -40,7 +40,7 @@ const Hero = () => {
           </BannerSubTitle>
         }
         isSlider={false}
-        imageSrc={isMobile ? HeroMObile : HeroDesktop}
+        imageSrc={HeroMobile}
       >
         <AppleAndGoogleStoreButton />
       </Banner>
@@ -48,13 +48,14 @@ const Hero = () => {
       <HeroFooter>
         <HeroFooterTitle> BACKED BY</HeroFooterTitle>
         <CommunityList>
-          {communityList.map((src, key) => (
+          {communityList.map((community, key) => (
             <img
-              src={src}
+              src={community.src}
               alt={`CommunityListImage `}
               key={key}
               style={{ margin: "10px" }}
               className="cursor"
+              onClick={() => window.open(community.link)}
             />
           ))}
         </CommunityList>
