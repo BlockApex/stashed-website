@@ -28,7 +28,7 @@ const Hero = () => {
       <Banner
         Title={
           <HeroTitle>
-            {"START "}
+            {"START"}
             <br /> {"YOUR STASH"}
           </HeroTitle>
         }
