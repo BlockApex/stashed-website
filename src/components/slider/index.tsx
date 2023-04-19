@@ -1,6 +1,7 @@
-import { useMemo } from "react";
+import React, { useState } from "react";
+import { useMemo, useRef } from "react";
 import { isMobile } from "react-device-detect";
-
+import { RemoveScroll } from "react-remove-scroll";
 import Slider from "react-slick";
 import {
   HomePic,
@@ -30,7 +31,7 @@ function SlideShow() {
     vertical: true,
     verticalSwiping: true,
     // autoplay: true,
-    speed: 1000,
+    speed: 500,
     // autoplaySpeed: 2000,
     centerMode: true,
     centerPadding: " 20%",
@@ -127,23 +128,48 @@ function SlideShow() {
     []
   );
 
+  const [show, setShow] = useState(false);
+
+  const slider = useRef(null);
+
+  const handleMouseDown = () => setShow(true);
+
+  const handleMouseUp = () => setShow(false);
+
+  const handleWheel = (e: any) => {
+    console.log(e, "ee");
+    if (e.deltaY > 0) {
+      // @ts-ignore
+      slider.current.slickNext();
+    } // @ts-ignore
+    else slider.current.slickPrev();
+  };
+
   return (
-    <Slider {...settings}>
-      {slides.map((slideContent, key) => {
-        return (
-          <div style={{ border: "5px solid blue !important" }} key={key}>
-            <BannerWrapper background={slideContent.background}>
-              <Banner
-                Title={slideContent.title}
-                subTitle={slideContent.subTitle}
-                imageSrc={slideContent.image}
-                isSlider={true}
-              />
-            </BannerWrapper>
-          </div>
-        );
-      })}
-    </Slider>
+    <div
+      onMouseEnter={handleMouseDown}
+      onMouseLeave={handleMouseUp}
+      onWheel={handleWheel}
+    >
+      <RemoveScroll removeScrollBar={false} enabled={show}>
+        <Slider {...settings} ref={slider}>
+          {slides.map((slideContent, key) => {
+            return (
+              <div style={{ border: "5px solid blue !important" }} key={key}>
+                <BannerWrapper background={slideContent.background}>
+                  <Banner
+                    Title={slideContent.title}
+                    subTitle={slideContent.subTitle}
+                    imageSrc={slideContent.image}
+                    isSlider={true}
+                  />
+                </BannerWrapper>
+              </div>
+            );
+          })}
+        </Slider>
+      </RemoveScroll>
+    </div>
   );
 }
 

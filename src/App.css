@@ -7,6 +7,9 @@
   pointer-events: none;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
 @font-face {
   font-family: "PPNeueMachinaLight";
   src: url("./assets/fonts/PPNeueMachina-InktrapLight.otf") format("truetype");
