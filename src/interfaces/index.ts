@@ -37,3 +37,8 @@ export type PlatformList = {
 export type AppleAndGoogleStoreButton = {
   flexDirection?: string;
 };
+
+export type EndAdornmentProps = {
+  isValid: boolean;
+  handleClick: () => void;
+};

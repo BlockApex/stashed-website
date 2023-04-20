@@ -1,17 +1,18 @@
-import { Box, Divider } from "@mui/material";
+import { Box, Divider, Snackbar } from "@mui/material";
 import { useMemo } from "react";
 import { isMobile } from "react-device-detect";
+
 import {
   Discord,
   Medium,
   NFT,
   NftDesktop,
-  RightArrow,
   Telegram,
   Twitter,
 } from "../../assets";
+import { useRegisterEmail } from "../../hooks/useRegisterEmail";
 
-import { TitleAndSubTitle } from "../index";
+import { EndAdornment, TitleAndSubTitle } from "../index";
 
 import {
   CommunitySectionBody,
@@ -22,15 +23,14 @@ import {
   StyledInputBase,
 } from "../styled";
 
-const EndAdornment = () => {
-  return <img src={RightArrow} alt="rightArrow" className="cursor" />;
-};
-
 const CommunitySection = () => {
   const CommunityPlatformLogos = useMemo(
     () => [Twitter, Discord, Telegram, Medium],
     []
   );
+
+  const { email, onChange, isValid, handleSubmit, snackbar, closeSnackBar } =
+    useRegisterEmail();
 
   return (
     <CommunitySectionWrapper>
@@ -52,7 +52,13 @@ const CommunitySection = () => {
           />
           <StyledInputBase
             placeholder="Enter your email"
-            endAdornment={<EndAdornment />}
+            endAdornment={
+              <EndAdornment isValid={isValid} handleClick={handleSubmit} />
+            }
+            onChange={onChange}
+            value={email}
+            input={email}
+            isValid={isValid}
           />
         </CommunitySectionLeftBox>
         <Divider
@@ -80,6 +86,12 @@ const CommunitySection = () => {
           </Box>
         </CommunitySectionRightBox>
       </CommunitySectionBody>
+      <Snackbar
+        open={snackbar}
+        autoHideDuration={2000}
+        message="Your email has been registered"
+        onClose={closeSnackBar}
+      />
     </CommunitySectionWrapper>
   );
 };

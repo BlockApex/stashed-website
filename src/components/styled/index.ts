@@ -409,11 +409,19 @@ export const SubTitle = styled("p")<{ color?: string }>(({ color }) => ({
   fontFamily: "SFPROREGULAR",
 }));
 
-export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+export const StyledInputBase = styled(InputBase, {
+  shouldForwardProp: (prop) => prop !== "isValid",
+})<{
+  input: string;
+  isValid: boolean;
+}>(({ theme, input, isValid }) => ({
   color: "black",
   width: "100%",
   borderRadius: "6px",
-  border: "1px solid #b2b2b2",
+  border:
+    input.length !== 0
+      ? `${isValid ? "2px solid green" : "2px solid red"}`
+      : "1px solid #b2b2b2",
   padding: "5px 10px",
   fontSize: "14px",
   // fontFamily: "",

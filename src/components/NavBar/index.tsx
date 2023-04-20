@@ -1,8 +1,8 @@
-import { Box, Container, Toolbar } from "@mui/material";
+import { Box, Container, Snackbar, Toolbar } from "@mui/material";
 import { useState } from "react";
 import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
 
-import { Logo, RightArrow } from "../../assets";
+import { Logo } from "../../assets";
 import {
   HeroFooterTitle,
   LogoImage,
@@ -15,14 +15,16 @@ import {
   TogglerBox,
 } from "../styled";
 import TabBoxComponent from "../TabBoxComponent";
-
-const EndAdornment = () => {
-  return <img src={RightArrow} alt="rightArrow" className="cursor" />;
-};
+import { useRegisterEmail } from "../../hooks/useRegisterEmail";
+import EndAdornment from "../EndAdornment";
 
 const tabs = ["Home", "SDK", "Community"];
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+
+  const { email, onChange, isValid, handleSubmit, snackbar, closeSnackBar } =
+    useRegisterEmail();
+
   return (
     <StyledNavBar position="sticky">
       <Container maxWidth="xl" sx={{ height: "100%", position: "relative" }}>
@@ -65,10 +67,23 @@ const Navbar = () => {
             <HeroFooterTitle> Stay Updated</HeroFooterTitle>
             <StyledInputBase
               placeholder="Enter your email"
-              endAdornment={<EndAdornment />}
+              endAdornment={
+                <EndAdornment isValid={isValid} handleClick={handleSubmit} />
+              }
+              value={email}
+              input={email}
+              isValid={isValid}
+              onChange={onChange}
             />
           </NavBarSearchBoxWrapper>
         </MobileTabBox>
+        <Snackbar
+          open={snackbar}
+          autoHideDuration={2000}
+          message="Your email has been registered"
+          onClose={closeSnackBar}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        />
       </Container>
     </StyledNavBar>
   );

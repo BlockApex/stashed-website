@@ -10,6 +10,7 @@ import Faqs from "./Faqs";
 import Footer from "./Footer";
 import PlatformList from "./PlatformList";
 import AppleAndGoogleStoreButton from "./AppleAndGoogleStoreButton";
+import EndAdornment from "./EndAdornment";
 
 export {
   NavBar,
@@ -24,4 +25,5 @@ export {
   Footer,
   PlatformList,
   AppleAndGoogleStoreButton,
+  EndAdornment,
 };
