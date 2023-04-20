@@ -44,7 +44,7 @@ export const LogoTitle = styled(Typography)<{
   textDecoration: "none",
   marginLeft: "5px",
   letterSpacing: "-0.02em",
-  fontFamily: fontFamily || "PPNeueMachinaRegular",
+  fontFamily: fontFamily || "PPNeueMachinaBold",
   paddingTop: "5px",
   [theme.breakpoints.down("sm")]: {
     display: "flex",
@@ -198,7 +198,7 @@ export const HeroTitle = styled(Typography)<{ textAlign?: string }>(
     color: "#0D0D0D",
     fontWeight: "860",
     fontSize: "100px",
-    fontFamily: "SFPROREGULAR",
+    fontFamily: "SFPROBOLD",
     lineHeight: "115%",
 
     letterSpacing: "-0.02em",
@@ -331,7 +331,7 @@ export const SliderTitle = styled("p")<{ color?: string }>(
 
     fontSize: "60px",
     fontWeight: 860,
-    fontFamily: "SFPROREGULAR",
+    fontFamily: "SFPROBOLD",
     margin: "0px",
     letterSpacing: "-0.02em",
     [theme.breakpoints.down("sm")]: {
@@ -394,10 +394,10 @@ export const TitleAndSubTitleWrapper = styled("div")(() => ({
 
 export const Title = styled("p")(() => ({
   margin: "0px",
-  fontSize: "22px",
+  fontSize: "25px",
   fontWeight: 860,
   textTransform: "capitalize",
-  fontFamily: "SFPROREGULAR",
+  fontFamily: "SFPROBOLD",
 }));
 
 export const SubTitle = styled("p")<{ color?: string }>(({ color }) => ({
@@ -447,9 +447,9 @@ export const FaqsWrapper = styled("div")(() => ({
 }));
 
 export const Heading = styled("p")(({ theme }) => ({
-  fontSize: "45px",
+  fontSize: "55px",
   fontWeight: 860,
-  fontFamily: "SFPROREGULAR",
+  fontFamily: "SFPROBOLD",
   lineHeight: "86px",
 
   padding: "0px 80px",
@@ -509,7 +509,6 @@ export const AccordionDetailsStyled = styled(AccordionDetails)(({ theme }) => ({
   marginTop: "10px",
   display: "flex",
   marginBottom: "25px",
-
   alignItems: "center",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
@@ -576,9 +575,9 @@ export const FooterRightBox = styled("div")(({ theme }) => ({
 export const FooterHeading = styled("p")(() => ({
   padding: "0px",
   margin: "0px 0px 60px  0px",
-  fontSize: "55px",
+  fontSize: "70px",
   fontFamily: "SFPROBOLD",
-  fontWeight: 860,
+  fontWeight: "bolder",
   letterSpacing: "-0.02em",
   textTransform: "uppercase",
 }));

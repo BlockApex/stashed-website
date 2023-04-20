@@ -51,7 +51,7 @@
 @font-face {
   font-family: "SFPROBOLD";
   src: url("./assets/fonts/SFPRODISPLAYBOLD.OTF") format("truetype");
-  font-weight: normal;
+  font-weight: "bold";
   font-style: normal;
 }
 

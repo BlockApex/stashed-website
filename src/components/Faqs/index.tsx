@@ -92,6 +92,7 @@ const Faqs = () => {
                 marginTop={{ xs: 2, sm: 0 }}
                 marginLeft={{ xs: 0, sm: 2 }}
                 fontFamily="SFPROREGULAR"
+                maxWidth="70%"
               >
                 {content.answer}
               </Typography>

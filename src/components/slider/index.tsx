@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMemo, useRef } from "react";
 import { isMobile } from "react-device-detect";
+import { useInView } from "react-intersection-observer";
 import { RemoveScroll } from "react-remove-scroll";
 import Slider from "react-slick";
 import {
@@ -24,7 +25,7 @@ const black = "#0D0D0D";
 function SlideShow() {
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
 
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -36,6 +37,18 @@ function SlideShow() {
     centerMode: true,
     centerPadding: " 20%",
     adaptiveHeight: true,
+    beforeChange: (current: any, next: any) => {
+      setCurrent(next);
+
+      if (current == 1 && next == 0) {
+        setShow(false);
+      }
+    },
+    afterChange: (current: any) => {
+      if (current === slides.length - 1) {
+        setShow(false);
+      }
+    },
   };
 
   const slides = useMemo(
@@ -129,29 +142,65 @@ function SlideShow() {
   );
 
   const [show, setShow] = useState(false);
+  const [current, setCurrent] = useState(0);
 
   const slider = useRef(null);
+  const {
+    ref: ref1,
+    entry,
+    inView,
+  } = useInView({
+    /* Optional options */
+    threshold: [1],
+    initialInView: false,
+  });
 
   const handleMouseDown = () => setShow(true);
 
-  const handleMouseUp = () => setShow(false);
+  const handleMouseUp = () => {
+    setShow(false);
+  };
 
   const handleWheel = (e: any) => {
-    console.log(e, "ee");
     if (e.deltaY > 0) {
       // @ts-ignore
       slider.current.slickNext();
-    } // @ts-ignore
-    else slider.current.slickPrev();
+    } else {
+      // @ts-ignore
+      slider.current.slickPrev();
+      if (current === 0) {
+        setShow(false);
+      }
+      console.log(current);
+    }
   };
+
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [show]);
+
+  useEffect(() => {
+    if (entry?.isIntersecting) {
+      setShow(true);
+    }
+  }, [entry, inView]);
 
   return (
     <div
       onMouseEnter={handleMouseDown}
       onMouseLeave={handleMouseUp}
       onWheel={handleWheel}
+      ref={ref1}
     >
-      <RemoveScroll removeScrollBar={false} enabled={show}>
+      <RemoveScroll removeScrollBar={false} enabled={false}>
         <Slider {...settings} ref={slider}>
           {slides.map((slideContent, key) => {
             return (
