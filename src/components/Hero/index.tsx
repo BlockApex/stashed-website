@@ -33,7 +33,7 @@ const Hero = () => {
           </HeroTitle>
         }
         subTitle={
-          <BannerSubTitle size={20}>
+          <BannerSubTitle size={20} isHeroSection={true}>
             One app for everything crypto.
             <br />
             Join, store, earn & explore

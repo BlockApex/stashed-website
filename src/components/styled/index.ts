@@ -226,14 +226,16 @@ export const HeroTitle = styled(Typography)<{ textAlign?: string }>(
 export const BannerSubTitle = styled("p")<{
   size: number;
   color?: string;
-}>(({ theme, size, color }) => ({
+  isHeroSection?: boolean;
+}>(({ theme, size, color, isHeroSection }) => ({
   color: color || "#0D0D0D",
   fontWeight: 400,
+
   fontSize: `${size}px`,
   fontFamily: "SFPROREGULAR",
   margin: "10px 0px 0px 0px",
   [theme.breakpoints.down("sm")]: {
-    textAlign: "start",
+    textAlign: isHeroSection ? "center" : "start",
     maxWidth: "300px",
     margin: "10px 0px",
   },
@@ -524,18 +526,18 @@ export const AccordionDetailsStyled = styled(AccordionDetails)(({ theme }) => ({
     flexDirection: "column",
     alignItems: "flex-start",
 
-    padding: "25px 35px",
+    padding: "15px 10px",
   },
 }));
 
 export const FooterWrapper = styled("div")(({ theme }) => ({
-  padding: "20px 40px",
+  padding: "30px 40px",
   display: "flex",
   // height: "350px",
   boxSizing: "border-box",
   background: "#0D0D0D",
   [theme.breakpoints.down(772)]: {
-    padding: "20px 15px",
+    padding: "25px",
   },
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
@@ -582,7 +584,7 @@ export const FooterRightBox = styled("div")(({ theme }) => ({
   },
 }));
 
-export const FooterHeading = styled("p")(() => ({
+export const FooterHeading = styled("p")(({ theme }) => ({
   padding: "0px",
   margin: "0px 0px 60px  0px",
   fontSize: "70px",
@@ -590,6 +592,9 @@ export const FooterHeading = styled("p")(() => ({
   fontWeight: "bolder",
   letterSpacing: "-0.02em",
   textTransform: "uppercase",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "60px",
+  },
 }));
 
 export const TextUnderLine = styled("span")<{ color?: string }>(
