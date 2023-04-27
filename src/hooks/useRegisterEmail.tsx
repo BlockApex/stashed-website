@@ -2,10 +2,14 @@
 import validator from "validator";
 import { useState } from "react";
 import axios from "axios";
+
+import { useAppDispatch } from "../store";
+import { setSnackBarStatus } from "../store/slices/appSlice";
 export const useRegisterEmail = () => {
   const [email, setEmail] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const [snackbar, setSnackbar] = useState(false);
+
+  const dispatch = useAppDispatch();
 
   const isValidEmail = (email: string) => validator.isEmail(email);
 
@@ -25,13 +29,14 @@ export const useRegisterEmail = () => {
     console.log("email");
     setEmail("");
     setIsValid(false);
-    setSnackbar(true);
+    // setSnackbar(true);
+    dispatch(setSnackBarStatus(true));
     await axios.post("https://server-wallet.ember.app/email/add", {
       email,
     });
   };
 
-  const closeSnackBar = () => setSnackbar(false);
+  const closeSnackBar = () => dispatch(setSnackBarStatus(false));
 
   return {
     isValidEmail,
@@ -39,7 +44,7 @@ export const useRegisterEmail = () => {
     email,
     isValid,
     handleSubmit,
-    snackbar,
     closeSnackBar,
+    setEmail,
   };
 };

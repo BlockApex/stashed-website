@@ -1,4 +1,4 @@
-import { Box, Divider, Snackbar } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import { useMemo } from "react";
 import { isMobile } from "react-device-detect";
 
@@ -29,8 +29,7 @@ const CommunitySection = () => {
     []
   );
 
-  const { email, onChange, isValid, handleSubmit, snackbar, closeSnackBar } =
-    useRegisterEmail();
+  const { email, onChange, isValid, handleSubmit } = useRegisterEmail();
 
   return (
     <CommunitySectionWrapper>
@@ -86,12 +85,6 @@ const CommunitySection = () => {
           </Box>
         </CommunitySectionRightBox>
       </CommunitySectionBody>
-      <Snackbar
-        open={snackbar}
-        autoHideDuration={2000}
-        message="Your email has been registered"
-        onClose={closeSnackBar}
-      />
     </CommunitySectionWrapper>
   );
 };

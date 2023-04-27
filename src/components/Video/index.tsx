@@ -1,4 +1,4 @@
-import { Stashed } from "../../assets";
+import { VideoPlayBack } from "../../assets";
 import { VideoWrapper } from "../styled";
 
 import { useEffect, useRef } from "react";
@@ -32,7 +32,7 @@ const Video = () => {
         <VideoWrapper ref={ref1}>
           <video
             ref={videoRef}
-            src={Stashed}
+            src={VideoPlayBack}
             muted
             playsInline={true}
             style={{

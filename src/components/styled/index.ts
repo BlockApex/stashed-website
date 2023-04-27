@@ -9,6 +9,8 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+
 import { Background } from "../../assets";
 
 export const LandingPageWrapper = styled("div")(() => ({
@@ -365,10 +367,10 @@ export const CommunitySectionBody = styled("div")(({ theme }) => ({
 }));
 
 export const CommunitySectionLeftBox = styled("div")(({ theme }) => ({
-  width: "35%",
+  width: "30%",
   // border: "2px solid green",
   [theme.breakpoints.down("md")]: {
-    width: "45%",
+    width: "40%",
   },
   [theme.breakpoints.down("sm")]: {
     width: "100%",
@@ -377,7 +379,7 @@ export const CommunitySectionLeftBox = styled("div")(({ theme }) => ({
 }));
 export const CommunitySectionRightBox = styled("div")(({ theme }) => ({
   width: "45%",
-  // border: "2px solid blue",
+  zIndex: 1,
   [theme.breakpoints.down("md")]: {
     width: "55%",
   },
@@ -598,3 +600,27 @@ export const TextUnderLine = styled("span")<{ color?: string }>(
     },
   })
 );
+
+export const RegisterationModalWrapper = styled("div")(({ theme }) => ({
+  width: "350px",
+  background: "#fff",
+  padding: "25px",
+  borderRadius: "12px",
+  border: "none",
+  position: "relative",
+  [theme.breakpoints.down(420)]: {
+    width: "85vw",
+    margin: "auto",
+    padding: "15px",
+  },
+}));
+
+export const StyledCloseIcon = styled(CloseIcon)(({ theme }) => ({
+  position: "absolute",
+  top: "25px",
+  right: "10px",
+  cursor: "pointer",
+  [theme.breakpoints.down(420)]: {
+    top: "15px",
+  },
+}));

@@ -7,7 +7,6 @@ import Gaming from "./gaming.svg";
 import Capital from "./capital.svg";
 import Mantle from "./mantle.svg";
 import Market from "./market.svg";
-import Stashed from "./stashed.mov";
 import HomePic from "./home.svg";
 import Earn from "./earn.svg";
 import SendPage from "./send.svg";
@@ -24,6 +23,7 @@ import StashedSymbol from "./stashedSymbol.svg";
 import Background from "./background.svg";
 import NFT from "./nft.svg";
 import NftDesktop from "./nftDesktop.svg";
+import VideoPlayBack from "./videoPlayback.mov";
 
 export {
   Logo,
@@ -35,7 +35,6 @@ export {
   Mantle,
   Market,
   Capital,
-  Stashed,
   HomePic,
   Earn,
   SendPage,
@@ -52,4 +51,5 @@ export {
   Background,
   NFT,
   NftDesktop,
+  VideoPlayBack,
 };

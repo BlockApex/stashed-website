@@ -11,6 +11,8 @@ import Footer from "./Footer";
 import PlatformList from "./PlatformList";
 import AppleAndGoogleStoreButton from "./AppleAndGoogleStoreButton";
 import EndAdornment from "./EndAdornment";
+import BasicModal from "./BasicModal";
+import RegisterationModal from "./RegisterationModal";
 
 export {
   NavBar,
@@ -26,4 +28,6 @@ export {
   PlatformList,
   AppleAndGoogleStoreButton,
   EndAdornment,
+  BasicModal,
+  RegisterationModal,
 };

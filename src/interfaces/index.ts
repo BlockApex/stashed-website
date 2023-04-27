@@ -7,6 +7,8 @@ export interface ThemeProps {
 
 export type AppReduxState = {
   colorTheme: PaletteMode;
+  isModalOpen: boolean;
+  snackbar: boolean;
 };
 
 export type TabBoxComponentProps = {
@@ -41,4 +43,10 @@ export type AppleAndGoogleStoreButton = {
 export type EndAdornmentProps = {
   isValid: boolean;
   handleClick: () => void;
+};
+
+export type BasicModalProps = {
+  open: boolean;
+  onClose: () => void;
+  children: React.ReactElement;
 };

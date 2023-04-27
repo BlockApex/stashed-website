@@ -3,6 +3,8 @@ import { AppReduxState } from "../../interfaces";
 
 const initialState: AppReduxState = {
   colorTheme: "light",
+  isModalOpen: true,
+  snackbar: false,
 };
 export const appSlice = createSlice({
   name: "app",
@@ -11,9 +13,16 @@ export const appSlice = createSlice({
     setAppTheme: (state, action) => {
       state.colorTheme = action.payload;
     },
+    setModalStatus: (state, action) => {
+      state.isModalOpen = action.payload;
+    },
+    setSnackBarStatus: (state, action) => {
+      state.snackbar = action.payload;
+    },
   },
 });
 
-export const { setAppTheme } = appSlice.actions;
+export const { setAppTheme, setModalStatus, setSnackBarStatus } =
+  appSlice.actions;
 
 export default appSlice.reducer;
