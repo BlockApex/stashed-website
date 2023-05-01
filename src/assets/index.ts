@@ -24,6 +24,7 @@ import Background from "./background.svg";
 import NFT from "./nft.svg";
 import NftDesktop from "./nftDesktop.svg";
 import VideoPlayBack from "./videoPlayback.mov";
+import MobileVideo from "./mobileVideo.mov";
 
 export {
   Logo,
@@ -52,4 +53,5 @@ export {
   NFT,
   NftDesktop,
   VideoPlayBack,
+  MobileVideo,
 };

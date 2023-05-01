@@ -458,26 +458,28 @@ export const FaqsWrapper = styled("div")(() => ({
   overflow: "hidden",
 }));
 
-export const Heading = styled("p")(({ theme }) => ({
-  fontSize: "55px",
-  fontWeight: 860,
-  fontFamily: "SFPROBOLD",
-  lineHeight: "86px",
+export const Heading = styled("p")<{ fontSize?: string }>(
+  ({ theme, fontSize }) => ({
+    fontSize: fontSize || "55px",
+    fontWeight: 860,
+    fontFamily: "SFPROBOLD",
+    lineHeight: "86px",
 
-  padding: "0px 80px",
-  margin: "10px",
-  color: "#000",
-  [theme.breakpoints.down("lg")]: {
-    padding: "0px 50px",
-  },
-  [theme.breakpoints.down("md")]: {
-    padding: "0px 30px",
-  },
-  [theme.breakpoints.down("sm")]: {
-    margin: "0px",
-    fontSize: "40px",
-  },
-}));
+    padding: "0px 80px",
+    margin: "10px",
+    color: "#000",
+    [theme.breakpoints.down("lg")]: {
+      padding: "0px 50px",
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: "0px 30px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      margin: "0px",
+      fontSize: "40px",
+    },
+  })
+);
 
 export const AccordionStyled = styled(Accordion)(({ theme }) => ({
   overflow: "hidden",

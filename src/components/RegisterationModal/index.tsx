@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import { setModalStatus } from "../../store/slices/appSlice";
 import { BasicModal, EndAdornment, TitleAndSubTitle } from "../index";
 import {
+  Heading,
   RegisterationModalWrapper,
   StyledCloseIcon,
   StyledInputBase,
@@ -31,6 +32,13 @@ const Index = () => {
     <BasicModal open={isModalOpen} onClose={closeModal}>
       <RegisterationModalWrapper>
         <StyledCloseIcon onClick={closeModal} />
+
+        <Heading
+          style={{ padding: "0px", margin: "0px", lineHeight: "60px" }}
+          fontSize="45px"
+        >
+          Coming Soon...
+        </Heading>
         <TitleAndSubTitle
           title="Don’t miss out!"
           subTitle="Sign up to our newsletter to stay up to date with everything Stashed."

@@ -1,5 +1,5 @@
 import { Box, Container, Toolbar } from "@mui/material";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
 
 import { Logo } from "../../assets";
@@ -20,7 +20,6 @@ import EndAdornment from "../EndAdornment";
 import { useAppDispatch } from "../../store";
 import { setModalStatus } from "../../store/slices/appSlice";
 
-const tabs = ["Home", "SDK", "Community"];
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
@@ -30,6 +29,17 @@ const Navbar = () => {
 
   const onHandleRegister = () => dispatch(setModalStatus(true));
 
+  const tabs = useMemo(
+    () => [
+      { name: "Home", onClick: () => {} },
+      {
+        name: "SDK",
+        onClick: () => dispatch(setModalStatus(true)),
+      },
+      { name: "Community", onClick: () => dispatch(setModalStatus(true)) },
+    ],
+    []
+  );
   return (
     <StyledNavBar position="sticky">
       <Container maxWidth="xl" sx={{ height: "100%", position: "relative" }}>

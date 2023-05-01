@@ -40,7 +40,7 @@ function SlideShow() {
     beforeChange: (current: any, next: any) => {
       setCurrent(next);
 
-      if (current == 1 && next == 0) {
+      if (current === 1 && next === 0) {
         setShow(false);
       }
     },
@@ -155,7 +155,7 @@ function SlideShow() {
     initialInView: false,
   });
 
-  const handleMouseDown = () => setShow(true);
+  // const handleMouseDown = () => setShow(true);
 
   const handleMouseUp = () => {
     setShow(false);
@@ -195,7 +195,7 @@ function SlideShow() {
 
   return (
     <div
-      onMouseEnter={handleMouseDown}
+      // onMouseEnter={handleMouseDown}
       onMouseLeave={handleMouseUp}
       onWheel={handleWheel}
       ref={ref1}
