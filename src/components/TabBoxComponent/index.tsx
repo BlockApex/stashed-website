@@ -7,8 +7,8 @@ const TabBoxComponent: FC<PROPS> = ({ tabs }) => {
     <TabBox>
       {tabs.map((tab, key) => {
         return (
-          <SingleTabText key={key} color="red">
-            {tab}
+          <SingleTabText key={key} color="red" onClick={tab.onClick}>
+            {tab.name}
           </SingleTabText>
         );
       })}

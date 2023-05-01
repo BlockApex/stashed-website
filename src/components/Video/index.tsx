@@ -1,8 +1,9 @@
-import { VideoPlayBack } from "../../assets";
-import { VideoWrapper } from "../styled";
-
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import { isMobile } from "react-device-detect";
+
+import { MobileVideo, VideoPlayBack } from "../../assets";
+import { VideoWrapper } from "../styled";
 
 const Video = () => {
   const {
@@ -32,7 +33,7 @@ const Video = () => {
         <VideoWrapper ref={ref1}>
           <video
             ref={videoRef}
-            src={VideoPlayBack}
+            src={isMobile ? MobileVideo : VideoPlayBack}
             muted
             playsInline={true}
             style={{

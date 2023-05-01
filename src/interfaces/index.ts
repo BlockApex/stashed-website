@@ -12,7 +12,10 @@ export type AppReduxState = {
 };
 
 export type TabBoxComponentProps = {
-  tabs: string[];
+  tabs: {
+    name: string;
+    onClick: () => void;
+  }[];
 };
 
 export type BannerProps = {
