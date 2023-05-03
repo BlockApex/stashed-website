@@ -1,5 +1,5 @@
-import { Box, Divider } from "@mui/material";
-import { useMemo } from "react";
+import { Box, ClickAwayListener, Divider } from "@mui/material";
+import { useMemo, useRef } from "react";
 import { isMobile } from "react-device-detect";
 
 import {
@@ -29,6 +29,8 @@ const CommunitySection = () => {
     []
   );
 
+  const ref = useRef();
+
   const { email, onChange, isValid, handleSubmit } = useRegisterEmail();
 
   return (
@@ -49,16 +51,27 @@ const CommunitySection = () => {
             title="Don’t miss out!"
             subTitle="Sign up to our newsletter to stay up to date with everything Stashed."
           />
-          <StyledInputBase
-            placeholder="Enter your email"
-            endAdornment={
-              <EndAdornment isValid={isValid} handleClick={handleSubmit} />
-            }
-            onChange={onChange}
-            value={email}
-            input={email}
-            isValid={isValid}
-          />
+
+          <ClickAwayListener
+            onClickAway={() => {
+              // @ts-ignore
+              ref.current?.blur();
+            }}
+          >
+            <StyledInputBase
+              placeholder="Enter your email"
+              ref={ref}
+              endAdornment={
+                <EndAdornment isValid={isValid} handleClick={handleSubmit} />
+              }
+              onChange={onChange}
+              value={email}
+              input={email}
+              isValid={isValid}
+              autoComplete="off"
+              // autoFocus={false}
+            />
+          </ClickAwayListener>
         </CommunitySectionLeftBox>
         <Divider
           orientation="vertical"

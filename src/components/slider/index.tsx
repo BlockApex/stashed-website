@@ -39,8 +39,8 @@ function SlideShow() {
     adaptiveHeight: true,
     beforeChange: (current: any, next: any) => {
       setCurrent(next);
-
-      if (current === 1 && next === 0) {
+      console.log({ current, next });
+      if ((current === 1 || current===0) && next === 0 ) {
         setShow(false);
       }
     },
@@ -204,7 +204,7 @@ function SlideShow() {
         <Slider {...settings} ref={slider}>
           {slides.map((slideContent, key) => {
             return (
-              <div style={{ border: "5px solid blue !important" }} key={key}>
+              <div key={key}>
                 <BannerWrapper background={slideContent.background}>
                   <Banner
                     Title={slideContent.title}

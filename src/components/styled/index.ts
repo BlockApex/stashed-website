@@ -324,8 +324,8 @@ export const BannerWrapper = styled("div")<{
     padding: "10px 60px",
   },
   [theme.breakpoints.down("sm")]: {
-    padding: "10px",
-    height: "510px",
+    padding: "30px 10px",
+    height: "530px",
   },
 }));
 
@@ -559,13 +559,14 @@ export const FooterLeftBox = styled("div")(({ theme }) => ({
   height: "100%",
   backgroundSize: "cover",
   [theme.breakpoints.down(772)]: {
-    padding: "10px",
+    padding: "40px 30px",
   },
   [theme.breakpoints.down("lg")]: {
     width: "50%",
   },
   [theme.breakpoints.down("sm")]: {
     width: "100%",
+    padding: "40px 20px",
   },
 }));
 
