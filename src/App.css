@@ -116,8 +116,8 @@
 }
 
 .slick-vertical .slick-slide {
-  /* border:none; */
-  margin-top: -0.3px;
+  border:none !important;
+  /* margin-top: -0.3px; */
 }
 .slick-next {
   display: none !important;
@@ -166,7 +166,7 @@ li:nth-child(1) button::before{
 }
 @media only screen and (max-width: 600px) {
   .slick-vertical .slick-slide{
-    height: 510px  !important;
+    height: 530px  !important;
     margin-top:-0.2px;
   }
   .zeroMargin{
