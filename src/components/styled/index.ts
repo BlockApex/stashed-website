@@ -632,3 +632,18 @@ export const StyledCloseIcon = styled(CloseIcon)(({ theme }) => ({
     top: "15px",
   },
 }));
+
+export const SliderDotWrapper = styled("div")(() => ({
+  position: "absolute",
+  top: "40%",
+  right: "1%",
+}));
+
+export const SliderDot = styled("div")(() => ({
+  width: "15px",
+  height: "15px",
+  borderRadius: "50%",
+
+  margin: "5px",
+  cursor: "pointer",
+}));

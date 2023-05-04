@@ -13,6 +13,7 @@ import AppleAndGoogleStoreButton from "./AppleAndGoogleStoreButton";
 import EndAdornment from "./EndAdornment";
 import BasicModal from "./BasicModal";
 import RegisterationModal from "./RegisterationModal";
+import SliderDots from "./SliderDots";
 
 export {
   NavBar,
@@ -30,4 +31,5 @@ export {
   EndAdornment,
   BasicModal,
   RegisterationModal,
+  SliderDots,
 };
