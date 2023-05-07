@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
 import { useMemo, useRef } from "react";
 import { isMobile } from "react-device-detect";
-import { useInView } from "react-intersection-observer";
-import { RemoveScroll } from "react-remove-scroll";
-import Slider from "react-slick";
+
 import {
   HomePic,
   SendPage,
@@ -12,6 +9,7 @@ import {
   UltimateMarketPlace,
 } from "../../assets";
 import Banner from "../Banner";
+import SliderDots from "../SliderDots";
 import {
   BannerWrapper,
   SliderTitle,
@@ -23,33 +21,22 @@ const white = "#fff";
 const black = "#0D0D0D";
 
 function SlideShow() {
-  const settings = {
-    dots: true,
-    infinite: false,
+  const home = useRef(null);
+  const earn = useRef(null);
+  const send = useRef(null);
+  const marketPlace = useRef(null);
+  const gamesAndApp = useRef(null);
 
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    // autoplay: true,
-    speed: 500,
-    // autoplaySpeed: 2000,
-    centerMode: true,
-    centerPadding: " 20%",
-    adaptiveHeight: true,
-    beforeChange: (current: any, next: any) => {
-      setCurrent(next);
-      console.log({ current, next });
-      if ((current === 1 || current===0) && next === 0 ) {
-        setShow(false);
-      }
-    },
-    afterChange: (current: any) => {
-      if (current === slides.length - 1) {
-        setShow(false);
-      }
-    },
-  };
+  const SectionReference = useMemo(
+    () => [
+      { ref: home, activeColor: "#000" },
+      { ref: earn, activeColor: "#00E599" },
+      { ref: send, activeColor: "#000" },
+      { ref: marketPlace, activeColor: "#00E599" },
+      { ref: gamesAndApp, activeColor: "#000" },
+    ],
+    []
+  );
 
   const slides = useMemo(
     () => [
@@ -70,6 +57,7 @@ function SlideShow() {
         ),
         image: HomePic,
         background: white,
+        ref: home,
       },
       {
         title: (
@@ -86,6 +74,7 @@ function SlideShow() {
         ),
         image: Earn,
         background: black,
+        ref: earn,
       },
       {
         title: (
@@ -103,6 +92,7 @@ function SlideShow() {
         ),
         image: SendPage,
         background: "#00E599",
+        ref: send,
       },
       {
         title: (
@@ -119,6 +109,7 @@ function SlideShow() {
         ),
         image: UltimateMarketPlace,
         background: black,
+        ref: marketPlace,
       },
       {
         title: (
@@ -136,88 +127,36 @@ function SlideShow() {
         ),
         image: GamesAndApps,
         background: white,
+        ref: gamesAndApp,
       },
     ],
     []
   );
 
-  const [show, setShow] = useState(false);
-  const [current, setCurrent] = useState(0);
-
-  const slider = useRef(null);
-  const {
-    ref: ref1,
-    entry,
-    inView,
-  } = useInView({
-    /* Optional options */
-    threshold: [1],
-    initialInView: false,
-  });
-
-  // const handleMouseDown = () => setShow(true);
-
-  const handleMouseUp = () => {
-    setShow(false);
-  };
-
-  const handleWheel = (e: any) => {
-    if (e.deltaY > 0) {
-      // @ts-ignore
-      slider.current.slickNext();
-    } else {
-      // @ts-ignore
-      slider.current.slickPrev();
-      if (current === 0) {
-        setShow(false);
-      }
-      console.log(current);
-    }
-  };
-
-  useEffect(() => {
-    if (show) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [show]);
-
-  useEffect(() => {
-    if (entry?.isIntersecting) {
-      setShow(true);
-    }
-  }, [entry, inView]);
-
   return (
-    <div
-      // onMouseEnter={handleMouseDown}
-      onMouseLeave={handleMouseUp}
-      onWheel={handleWheel}
-      ref={ref1}
-    >
-      <RemoveScroll removeScrollBar={false} enabled={false}>
-        <Slider {...settings} ref={slider}>
-          {slides.map((slideContent, key) => {
-            return (
-              <div key={key}>
-                <BannerWrapper background={slideContent.background}>
-                  <Banner
-                    Title={slideContent.title}
-                    subTitle={slideContent.subTitle}
-                    imageSrc={slideContent.image}
-                    isSlider={true}
-                  />
-                </BannerWrapper>
-              </div>
-            );
-          })}
-        </Slider>
-      </RemoveScroll>
+    <div>
+      {slides.map((slideContent, key) => {
+        return (
+          <div
+            key={key}
+            ref={slideContent.ref}
+            style={{ position: "relative" }}
+          >
+            <BannerWrapper background={slideContent.background}>
+              <Banner
+                Title={slideContent.title}
+                subTitle={slideContent.subTitle}
+                imageSrc={slideContent.image}
+                isSlider={true}
+              />
+            </BannerWrapper>
+            <SliderDots
+              SectionReference={SectionReference}
+              currentIndex={key}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -150,6 +150,35 @@ li:nth-child(1) button::before{
   
   color:#0D0D0D
 }
+
+
+.dots{
+  background: gray;
+}
+
+
+/* .dots:nth-child(1) {
+  background:#0D0D0D
+}
+.dots:nth-child(2) {
+
+
+  background:#00E599
+}
+.dots:nth-child(3) {
+ 
+  background:#0D0D0D
+}
+.dots:nth-child(4) {
+ 
+  background:#00E599
+}
+.dots:nth-child(5) {
+  
+  background:#0D0D0D
+} */
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
